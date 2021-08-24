@@ -7,4 +7,4 @@ https://ac091f0d1fd4ba3480018e330031000b.web-security-academy.net/filter?categor
 
 Về cơ bản, lab này giúp chúng ta xác định được trường nào chứa lỗi thôi.
 
-![](imgs/5.png?raw=true)
+![](/imgs/SQL-Injection/5.png?raw=true)

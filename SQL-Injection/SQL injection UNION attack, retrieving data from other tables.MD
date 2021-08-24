@@ -6,16 +6,16 @@
 
 (Chúng ta sẽ thấy 2 trường mà chúng ta select có xuất hiện thêm ở trên list category, chứng tỏ lỗi hiển thị sẽ nằm ở đây)
 
-![](imgs/6.png?raw=true)
+![](/imgs/SQL-Injection/6.png?raw=true)
 
 Ok web load ổn, chúng ta sẽ tiến hành select username và password từ bảng **users**
 
 https://acd51f7e1f13167e80c95424009300ec.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+username,password+FROM+users--
 
-![](imgs/7.png?raw=true)
+![](/imgs/SQL-Injection/7.png?raw=true)
 
 Chúng ta sẽ thu được 3 user là wiener, admin và carlos.
 Vào phần My Account và Login vào sẽ solve lab.
 
-![](imgs/8.png?raw=true)
+![](/imgs/SQL-Injection/8.png?raw=true)
 

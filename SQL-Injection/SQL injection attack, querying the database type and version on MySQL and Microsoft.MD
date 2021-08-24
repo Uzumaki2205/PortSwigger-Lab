@@ -6,7 +6,7 @@ Mình đã thực hiện câu query **‘ Order By 1--** nhưng web trả về e
 
 > Thay vì sử dụng -- chúng ta sẽ xài # để comment
 
-![](imgs/18.png?raw=true)
+![](/imgs/SQL-Injection/18.png?raw=true)
 
 Sau đó ta sẽ xác định lỗi khi hiển thị SELECT sẽ xuất hiện ở đâu (ở cuối)
 
@@ -16,11 +16,11 @@ Sau khi đã xác định được lỗi hiển thị ở đâu ta tiến hành 
 
 > **‘ UNION SELECT @@version,NULL#**
 
-![](imgs/20.png?raw=true)
+![](/imgs/SQL-Injection/20.png?raw=true)
 
 Thay lại url ở web và Solve
 
-![](imgs/21.png?raw=true)
+![](/imgs/SQL-Injection/21.png?raw=true)
 
 
 
