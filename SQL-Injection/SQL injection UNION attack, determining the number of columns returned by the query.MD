@@ -1,5 +1,5 @@
 ## SQL injection UNION attack, determining the number of columns returned by the query
-- Đầu tiên, sau khi bấm vào tra cứu 1 loại sản phẩm ta sẽ được thông tin url như sau:
+- Lab này sẽ hướng dẫn chúng ta xác định được số trường của bảng, thì đầu tiên sau khi bấm vào tra cứu 1 loại sản phẩm ta sẽ được thông tin url như sau:
 
 > https://ac6d1f181e6cd76280e840750070009b.web-security-academy.net/filter?category=<tên_loại>
 
@@ -9,7 +9,7 @@ Thử sửa param category lại thành cái gì đó khác thử xem (ở đây
 
 ![](imgs/2.png?raw=true)
 
-Nhưng nếu đóng chuỗi ở cuối url chúng ta sẽ nhận internal server error vì giá trị ‘ không cho phép
+Nhưng nếu đóng chuỗi ở cuối url chúng ta sẽ nhận "internal server error" vì giá trị ‘ không cho phép
 
 ![](imgs/3.png?raw=true)
 
@@ -30,6 +30,9 @@ C | D
 
 Ở đây chúng ta sẽ sử dụng câu query tương tự để lấy tất cả
 Url sử dụng query cuối cùng sẽ là ***https://ac6d1f181e6cd76280e840750070009b.web-security-academy.net/filter?category=sondeptrai%27+UNION+SELECT+NULL,NULL,NULL--***
+
 (Vì chúng ta không biết đó là trường nào nên chúng ta sẽ sử dụng NULL dần tăng lên để xác định có bao nhiu trường trong bảng => Có 3 columns trong bảng)
 
 Thử giá trị NULL tăng lên cho đến khi nào load được trang web (xác định số lượng trường trong bảng bằng số lượng NULL)
+
+![](imgs/4.png?raw=true)
