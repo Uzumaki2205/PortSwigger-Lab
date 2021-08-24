@@ -1,6 +1,7 @@
 ## SQL injection attack, querying the database type and version on Oracle
 
 Lab này đã cho biết sẵn database là Oracle, nhưng vấn đề là chúng ta sẽ không biết bảng tên gì để truy vấn.
+
 Truy vấn NULL, NULL như Lab 1,2 sẽ bị error nên chúng ta sẽ sử dụng câu truy vấn đặc biệt của Oracle
 
 Để truy vấn Database Type chúng ta sẽ sử dụng bảng DUAL (bảng DUAL là bảng có sẵn trong Oracle)

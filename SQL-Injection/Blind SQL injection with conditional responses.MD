@@ -1,9 +1,11 @@
 ## Blind SQL injection with conditional responses
 
 Ca này hơi khó nên chúng ta nên dùng BurpSuite nhé :v
+
 Lab có bảo ***“The application uses a tracking cookie for analytics, and performs an SQL query containing the value of the submitted cookie”***
 
-Nôm na có nghĩa là ***web sử dụng tracking cookie để thực hiện truy vấn với giá trị cookie gửi lên***.
+Nôm na có nghĩa là ***web sử dụng tracking cookie để thực hiện truy vấn với giá trị cookie gửi lên***
+
 Để ý kĩ, sử dụng cookie editor chúng ta có thể thấy được, nếu mình xóa tracking id đi thì sẽ không có chữ welcome ở menu, còn để lại thì lại có lại chữ welcome.
 
 ![](/imgs/SQL-Injection/34.png?raw=true)
@@ -41,6 +43,7 @@ Trường hợp này chúng ta sẽ bruteforce ra từng chữ cái có trong pa
 > **TrackingId=WMT4K2EYUiELrvdl' and (select username from users where username='administrator' and LENGTH(password)>1)='administrator'--**
 
 Đoạn query này cũng đoán ra là chúng ta sẽ so sánh thêm 1 trường hợp nữa là chiều dài password nếu mà lớn hơn 1 thì sẽ trả ra kết quả.
+
 Tiến hành bruteforce bằng cách đưa request sang intruder và đặt dấu đô la vào ngay số 1 ($1$) để chúng ta sẽ thay bằng những con số tăng dần nhằm xác định độ dài mà password có thể có. 
 
 ![](/imgs/SQL-Injection/40.png?raw=true)
@@ -57,6 +60,7 @@ Bây giờ ta sẽ biết được password có chính xác 20 kí tự
 Ta sẽ sử dụng hàm có sẵn trong sql để so sánh chuỗi.
 
 Đầu tiên sẽ Test thử 1 trường hợp
+
 Hàm substring ai xài qua python chắc cũng biết rồi nhỉ (ví dụ ở bên dưới mình sẽ lấy kí tự đầu của password rồi so sánh với x)
 > **TrackingId=43RCZtvUB1HhMJxD'+AND+(SELECT+SUBSTRING(password,1,1)+FROM+users+WHERE+username%3d'administrator')%3d'x'--** (x là để so sánh với chữ cái đầu tiên bằng substring(password,1,1))
 
@@ -73,6 +77,7 @@ Chúng ta sẽ thu được 1 request có chiều dài thay đổi và tồn t�
 ![](/imgs/SQL-Injection/45.png?raw=true)
 
 Vậy là yên tâm rồi, chúng ta sẽ xét tới lần bruteforce tiếp theo sẽ cho ra password hoàn chỉnh bằng cách thêm 2 biến đô la vào chỗ substring và chuỗi để so sánh.
+
 Đổi Attack type lại thành Cluster bomb để có thể chọn xem được 2 giá trị payload đã thêm đô la. 
 > Payload sử dụng vẫn như cũ nhưng payload set 1 sẽ là number từ 1 đến 20 còn payload set 2 thì như cũ (brute forcer)
 
@@ -86,6 +91,7 @@ Sau khi tấn công ta sẽ sắp xếp độ dài từ cao tới thấp và li�
 Dò muốn mỏi con mắt thì ta được password như ở dưới, xóa khoảng trắng đăng nhập bằng administrator là solve.
 
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
 h d p k 5 w s c d j f x 6 l q  k 0 5 n 4
 
 ![](/imgs/SQL-Injection/49.png?raw=true)

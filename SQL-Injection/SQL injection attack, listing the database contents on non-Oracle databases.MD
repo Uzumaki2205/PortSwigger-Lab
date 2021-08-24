@@ -9,6 +9,7 @@ Tiếp tục truy vấn ra tên cơ sở dữ liệu từng lệnh như trong ch
 ![](/imgs/SQL-Injection/22.png?raw=true)
 
 Lab yêu cầu ta phải đăng nhập bằng tài khoản trong bảng user nên ta phải biết bảng user tên là gì trong database
+
 Câu query list tất cả các table trong Postgres: SELECT * FROM information_schema.tables
 Nhưng chúng ta không thể select * để lấy tất cả được vì sẽ bị lỗi trên url => cho nên chúng ta sẽ sử dụng các column name đặc biệt trong Postgres.
 
@@ -21,6 +22,7 @@ Sau khi thực hiện truy vấn **' UNION SELECT table_name,NULL%20 FROM inform
 ![](/imgs/SQL-Injection/24.png?raw=true)
 
 Chúng ta sẽ tìm tới bảng users, do sẽ có nhiều bảng user nên thường ngta sẽ đặt tên bảng là số nhiều nên chúng ta chỉ chú ý trước những bảng này để select.
+
 Ở đây mình sẽ select bảng **users_tucmxy**
 
 Dựa theo [cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) lệnh select ra các trường có trong bảng sẽ là

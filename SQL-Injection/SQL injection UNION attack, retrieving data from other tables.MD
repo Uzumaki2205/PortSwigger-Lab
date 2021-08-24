@@ -15,6 +15,7 @@ https://acd51f7e1f13167e80c95424009300ec.web-security-academy.net/filter?categor
 ![](/imgs/SQL-Injection/7.png?raw=true)
 
 Chúng ta sẽ thu được 3 user là wiener, admin và carlos.
+
 Vào phần My Account và Login vào sẽ solve lab.
 
 ![](/imgs/SQL-Injection/8.png?raw=true)
