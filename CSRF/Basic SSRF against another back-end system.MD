@@ -1,6 +1,7 @@
 ## Basic SSRF against another back-end system
 
 Lab này sẽ lấy data từ internal system nhưng sẽ có thay đổi IP như phần desciption.
+
 Ta sẽ bắt lại request checkStock và thay bằng địa chỉ 192.168.0.x
 
 ![](/imgs/CSRF/5.png?raw=true)
