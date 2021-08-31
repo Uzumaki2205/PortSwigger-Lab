@@ -41,6 +41,7 @@ Từ đây chúng ta có thể hiểu là ***ĐÚNG THÀNH SAI, SAI THÀNH ĐÚN
 Ta sẽ áp dụng công thức sau đây để tránh bị rối não trước khi xuống tiếp phía dưới.
 
 > Đúng + Đúng -> Trả ra Error (Do thực thi cái hàm To_Char)
+
 > Đúng + Sai -> Trả về bình thường (do query trả về là NULL)
 
 Chúng ta sẽ tiếp tục
