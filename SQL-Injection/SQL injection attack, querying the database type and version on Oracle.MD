@@ -16,6 +16,10 @@ Khi truy vấn như thế này **' UNION SELECT 'a', 'b' FROM DUAL--** chúng ta
 
 Để select ra được version chúng ta sẽ sử dụng câu lệnh trong [cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) là **SELECT banner FROM v$version**
 
-> Câu query chúng ta sử dụng sẽ là **' UNION SELECT banner,NULL FROM v$version--**
+Câu query chúng ta sử dụng sẽ là 
+
+```markdown
+**' UNION SELECT banner,NULL FROM v$version--**
+```
 
 ![](/imgs/SQL-Injection/17.png?raw=true)

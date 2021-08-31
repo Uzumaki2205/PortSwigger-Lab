@@ -14,16 +14,19 @@ Chúng ta sẽ thử lần lượt từ 1,2,3 xem web bị error ở đâu => k�
 ![](/imgs/SQL-Injection/9.png?raw=true)
 
 Ta bắt đầu sử dụng câu lệnh UNION để nối thêm 1 câu query nữa để SELECT ra các giá trị trong bảng.
+
 Đoạn query đằng sau sẽ là **' UNION SELECT NULL, NULL--**
 
 Chúng ta sẽ thử thay tên trường vào từng chỗ NULL để xem web sẽ load như nào
 
-Khi thử tới đoạn query ' UNION SELECT NULL, ‘son’-- thì web sẽ load như sau (nó đã có thêm 1 hàng nữa ở list product) => chúng ta sẽ select ở trường NULL thứ 2 để lấy ra các data cần tìm.
+Khi thử tới đoạn query **' UNION SELECT NULL, ‘son’--** thì web sẽ load như sau (nó đã có thêm 1 hàng nữa ở list product) => chúng ta sẽ select ở trường NULL thứ 2 để lấy ra các data cần tìm.
 
 ![](/imgs/SQL-Injection/10.png?raw=true)
 
 Bắt đầu thử dò username (password cũng làm tương tự)
+```markdown
 **‘ UNION SELECT NULL, username from users--**
+```
 
 ![](/imgs/SQL-Injection/11.png?raw=true)
 
@@ -42,7 +45,10 @@ Chúng ta có thể truy vấn kiểu nối chuỗi để có thể lấy đư�
 ![](/imgs/SQL-Injection/13.png?raw=true)
 
 Áp dụng để truy vấn cả username và password
+
+```markdown
 **' UNION SELECT NULL, username || '-' || password from users--**
+```
 
 (Ta sẽ nhận được data theo format username-password)
 

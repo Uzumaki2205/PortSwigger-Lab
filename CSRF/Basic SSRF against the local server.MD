@@ -18,6 +18,9 @@ Search trong sourcecode sẽ có url xóa user như sau
 **/admin/delete?username=carlos**
 
 Áp dụng vào param stockApi
+
+```markdown
 **stockApi=http://localhost/admin/delete?username=carlos**
+```
 
 ![](/imgs/CSRF/4.png?raw=true)

