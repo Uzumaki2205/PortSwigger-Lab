@@ -21,4 +21,4 @@ Vậy exploit server sẽ có đoạn body như sau:
 ![](/imgs/DOM-BASED-VULNERABILITIES/14.png?raw=true)
 
 ### Tài liệu tham khảo
-- [DOM-based Vuln: ](https://portswigger.net/web-security/dom-based)
+- DOM-based Vuln: [https://portswigger.net/web-security/dom-based](https://portswigger.net/web-security/dom-based)

@@ -36,4 +36,4 @@ Tiến hành xóa user carlos bằng
 ![](/imgs/SSRF/17.png?raw=true)
 
 ### Tài liệu tham khảo
-- [Public API:](https://yarl.readthedocs.io/en/latest/api.html) 
+- Public API: [https://yarl.readthedocs.io/en/latest/api.html](https://yarl.readthedocs.io/en/latest/api.html)

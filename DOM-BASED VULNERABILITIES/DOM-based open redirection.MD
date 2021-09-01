@@ -17,4 +17,4 @@ https://ac791f1a1f6e73d28056ca7d00140090.web-security-academy.net/post?postId=5&
 ![](/imgs/DOM-BASED-VULNERABILITIES/11.png?raw=true)
 
 ### Tài liệu tham khảo
-- [DOM-based Vuln: ](https://portswigger.net/web-security/dom-based)
+- DOM-based Vuln: [https://portswigger.net/web-security/dom-based](https://portswigger.net/web-security/dom-based)

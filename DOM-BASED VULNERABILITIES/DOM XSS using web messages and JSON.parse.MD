@@ -21,5 +21,5 @@ Inject đoạn iframe này vào server exploit thì request gửi đúng theo h�
 ![](/imgs/DOM-BASED-VULNERABILITIES/10.png?raw=true)
 
 ### Tài liệu tham khảo
-- [DOM-based Vuln: ](https://portswigger.net/web-security/dom-based)
-- [PostMesage to Iframe: ](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
+- DOM-based Vuln: [https://portswigger.net/web-security/dom-based](https://portswigger.net/web-security/dom-based)
+- PostMesage to Iframe: [https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)

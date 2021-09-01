@@ -31,4 +31,4 @@ Set thời gian 300 để chắc chắn là form được load trước js, sau 
 ![](/imgs/DOM-BASED-VULNERABILITIES/21.png?raw=true)
 
 ### Tài liệu tham khảo
-- [DOM-based Vuln: ](https://portswigger.net/web-security/dom-based)
+- DOM-based Vuln: [https://portswigger.net/web-security/dom-based](https://portswigger.net/web-security/dom-based)
