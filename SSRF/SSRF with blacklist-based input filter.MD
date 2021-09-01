@@ -4,11 +4,11 @@
 
 Hoặc có thể encode bằng Ip Obfuscation
 
-![](/imgs/CSRF/8.png?raw=true)
+![](/imgs/SSRF/8.png?raw=true)
 
 Xài 1 trong 2 ngay chỗ IP đều được
 
-![](/imgs/CSRF/9.png?raw=true)
+![](/imgs/SSRF/9.png?raw=true)
 
 Nhưng mà nếu /admin tiếp thì sẽ bị error không load được nữa.
 
@@ -16,8 +16,8 @@ Mình đã tiến hành encode url /admin 2 lần và web sẽ load được bì
 
 **stockApi=http://127.1/%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65**
 
-![](/imgs/CSRF/10.png?raw=true)
-![](/imgs/CSRF/11.png?raw=true)
+![](/imgs/SSRF/10.png?raw=true)
+![](/imgs/SSRF/11.png?raw=true)
 
 Ok sửa lại value thành như này là solve lab 
 
@@ -25,4 +25,4 @@ Ok sửa lại value thành như này là solve lab
 **stockApi=http://127.1/%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65/delete?username=carlos**
 ```
 
-![](/imgs/CSRF/12.png?raw=true)
+![](/imgs/SSRF/12.png?raw=true)
